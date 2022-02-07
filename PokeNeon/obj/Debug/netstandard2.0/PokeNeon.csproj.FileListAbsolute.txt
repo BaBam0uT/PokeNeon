@@ -1,0 +1,16 @@
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeNeon.deps.json
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeNeon.dll
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\ref\PokeNeon.dll
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeNeon.pdb
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.csproj.AssemblyReference.cache
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.GeneratedMSBuildEditorConfig.editorconfig
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.AssemblyInfoInputs.cache
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.AssemblyInfo.cs
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.csproj.CoreCompileInputs.cache
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\XamlC.stamp
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.dll
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\ref\PokeNeon.dll
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.pdb
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\Onglets.xaml.g.cs

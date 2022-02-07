@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6927271c-d0e5-4c4f-9c14-097509ebed54": {
+      "ProjectGuid": "6927271c-d0e5-4c4f-9c14-097509ebed54",
+      "DisplayName": "PokeNeon",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

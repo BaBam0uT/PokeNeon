@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "xUcpAxmpLkJCEQMF0yNNd1uNQqGQ0MVCDKL574tF7Nnrarjh00tifqdlMb35UZ/V//irLnclO3cQTeBMAg3v9A==",
+  "success": true,
+  "projectFilePath": "C:\\IUT\\Projet_IUT\\Projet_Mobile\\PokeNeon\\PokeNeon\\PokeNeon.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\valen\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
