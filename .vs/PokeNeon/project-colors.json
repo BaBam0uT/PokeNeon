@@ -10,7 +10,17 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Fichiers divers",
       "ColorIndex": -1
+    },
+    "da472b97-28a9-483a-9335-51e06238d34e": {
+      "ProjectGuid": "da472b97-28a9-483a-9335-51e06238d34e",
+      "DisplayName": "PokeNeon.Android",
+      "ColorIndex": 1
+    },
+    "aa0174cd-1537-4426-947d-5a41e7af0523": {
+      "ProjectGuid": "aa0174cd-1537-4426-947d-5a41e7af0523",
+      "DisplayName": "PokeNeon.iOS",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

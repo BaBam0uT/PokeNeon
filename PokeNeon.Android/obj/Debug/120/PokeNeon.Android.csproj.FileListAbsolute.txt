@@ -62,6 +62,12 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\mipm
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\mipmap-xxhdpi\launcher_foreground.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\mipmap-xxxhdpi\icon.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\mipmap-xxxhdpi\launcher_foreground.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\poke_ball.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\logo.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\wallpaper.jpg
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\recherche.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\accueil.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\ajout.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\uploadflags.txt
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\resolvedassemblies.hash
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\android\assets\FormsViewGroup.dll
@@ -627,6 +633,3 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_C
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\logo.png
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\poke_ball.png
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\wallpaper.jpg

@@ -10,7 +10,7 @@ namespace PokeNeon
         {
             InitializeComponent();
 
-            MainPage = new Onglets();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

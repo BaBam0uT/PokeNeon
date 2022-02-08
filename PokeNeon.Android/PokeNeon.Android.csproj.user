@@ -4,5 +4,6 @@
     <SelectedDevice>Samsung SM-J330F</SelectedDevice>
     <ActiveDebugProfile>Samsung SM-J330F</ActiveDebugProfile>
     <DefaultDevice>pixel_5_-_api_30</DefaultDevice>
+    <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:PokeNeon.Views"
+       x:Class="PokeNeon.AppShell"
+       TabBarBackgroundColor="#545454"
+       NavBarIsVisible="False">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TitleColor" Value="#A6A905" />
+                <Setter Property="Shell.UnselectedColor" Value="Black" />
+            </Style>
+            <Style TargetType="TabBar"  BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Icon="accueil.png"
+             Title="Accueil">
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+        <Tab Icon="poke_ball.png"
+             Title="Pokédex">
+            <ShellContent ContentTemplate="{DataTemplate views:ListPage}" />
+        </Tab>
+        <Tab Icon="ajout.png"
+             Title="Ajouter">
+            <ShellContent ContentTemplate="{DataTemplate views:AddPage}" />
+        </Tab>
+        <Tab Icon="recherche.png"
+             Title="Rechercher">
+            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
+        </Tab>
+    </TabBar>
+</Shell>
