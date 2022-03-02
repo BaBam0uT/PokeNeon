@@ -16,5 +16,10 @@ namespace PokeNeon.Views
         {
             InitializeComponent();
         }
+
+        private async void RevenirListe(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListPage());
+        }
     }
 }

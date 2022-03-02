@@ -3,10 +3,250 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PokeNeon.Views.DescriptionPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <FlexLayout Direction="Column">
+            <Grid Margin="5,5,5,5">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RevenirListe"
+                        NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <Label BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" HeightRequest="20" WidthRequest="20">Retour</Label>
+            </Grid>
+            <Grid Margin="5,5,5,5">
+                <Label Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Image"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+
+                <Grid  Grid.Column="1" Grid.Row="0">
+                    <Label Text="N° :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+
+
+                    <Label Text="Nom :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="abc" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                    <Label Text="Catégorie :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="abc" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                    <Label Text="Taille (m) :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                    <Label Text="Poids (kg) :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                    <Label Text="Talent(s) :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                    <Entry Placeholder="abc" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                </Grid>
+            </Grid>
+
+            <Grid Margin="5,5,5,5">
+                <ImageButton HeightRequest="110" WidthRequest="40" Grid.Column="0" Grid.Row="0"></ImageButton>
+                <ImageButton HeightRequest="110" WidthRequest="40" Grid.Column="1" Grid.Row="0"></ImageButton>
+                <ImageButton HeightRequest="110" WidthRequest="40" Grid.Column="2" Grid.Row="0"></ImageButton>
+
+            </Grid>
+
+            <Grid Margin="5,5,5,5">
+                <Label Text="PV :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                <Label Text="Attaque :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                <Label Text="Défense :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                <Label Text="Attaque spéciale :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                <Label Text="Défense spéciale :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+
+                <Label Text="Vitesse :"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+                <Entry Placeholder="0" 
+                    PlaceholderColor="Red"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    HeightRequest="40"
+                    FontSize="Small"/>
+            </Grid>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
