@@ -19,19 +19,19 @@
     <TabBar>
         <Tab Icon="accueil.png"
              Title="Accueil">
-            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+            <views:HomePage/>
         </Tab>
         <Tab Icon="poke_ball.png"
              Title="Pokédex">
-            <ShellContent ContentTemplate="{DataTemplate views:ListPage}" />
+            <views:ListPage />
         </Tab>
         <Tab Icon="ajout.png"
              Title="Ajouter">
-            <ShellContent ContentTemplate="{DataTemplate views:AddPage}" />
+            <views:AddPage/>
         </Tab>
         <Tab Icon="recherche.png"
              Title="Rechercher">
-            <ShellContent ContentTemplate="{DataTemplate views:SearchPage}" />
+            <views:SearchPage/>
         </Tab>
     </TabBar>
 </Shell>

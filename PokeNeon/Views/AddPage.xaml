@@ -4,10 +4,92 @@
              x:Class="PokeNeon.Views.AddPage"
              BackgroundImage="wallpaper.jpg">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <FlexLayout Direction="Column">
+            <Grid>
+                <Label Text="PV :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="0"/>
+
+                <Label Text="Attaque :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="1"/>
+
+                <Label Text="Défense :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="2"/>
+
+                <Label Text="Attaque spéciale :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="3"/>
+
+                <Label Text="Défense spéciale :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="4"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="4"/>
+
+                <Label Text="Vitesse :"
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Entry Placeholder="0" 
+                       PlaceholderColor="Red"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="5"/>
+            </Grid>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

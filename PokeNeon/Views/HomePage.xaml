@@ -11,8 +11,7 @@
             <StackLayout Orientation="Horizontal">
                 <Image Margin="10,0,0,0"
                        Source="logo.png" 
-                       WidthRequest="40"
-                       BackgroundColor="#A6A905"/>
+                       WidthRequest="40"/>
                 <Label Text="PokeNeon" 
                        VerticalOptions="Center"
                        HorizontalOptions="CenterAndExpand" 
