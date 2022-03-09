@@ -3,8 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PokeNeon.Views.ListPage"
              BackgroundImage="wallpaper.jpg">
-
-    <CollectionView ItemsSource="{Binding ListePokemons}">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <CollectionView ItemsSource="{Binding ListePokemons}"
+                    SelectionMode="Single"
+                    SelectionChanged="AfficherDescription">
 
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="3" />
@@ -12,39 +30,29 @@
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Grid Padding="15">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="AfficherDescription"
-                                              NumberOfTapsRequired="2" />
-                    </Grid.GestureRecognizers>
-
-                    <Image Source="{Binding Image}"
-                           Grid.Row="0"
-                           Aspect="AspectFill"
-                           BackgroundColor="White"
-                           HorizontalOptions="Start"
-                           WidthRequest="100" HeightRequest="40"/>
-
-                    <StackLayout Grid.Row="1"
-                                 BackgroundColor="{Binding TypeColor}"
-                                 >
+                <Grid Padding="10">
+                    <StackLayout BackgroundColor="{Binding TypeColor}">
+                        <Image Source="{Binding Image}"
+                               Grid.Row="0"
+                               BackgroundColor="White"  
+                               HeightRequest="100"/>
                         <Label Grid.Column="0"
-                               VerticalOptions="Center"
                                Text="{Binding Id}"
                                FontAttributes="Bold"
-                               Margin="10,10,0,0"/>
+                               Margin="10,0,0,0"/>
                         <Label Grid.Column="0"
-                               VerticalOptions="Center"
                                Text="{Binding Nom}"
                                FontAttributes="Bold"
                                Margin="10,0,0,0"/>
-                        <FlexLayout Margin="10,0,0,0">
+                        <FlexLayout>
                             <Image Grid.Column="0"
                                    Source="{Binding Type1}"/>
                             <Image Grid.Column="0"
-                                   Source="{ Binding Type2}"/>
+                                   Source="{ Binding Type2}"
+                                   WidthRequest="100"/>
                         </FlexLayout>
                     </StackLayout>
+
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>

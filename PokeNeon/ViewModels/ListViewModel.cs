@@ -3,6 +3,8 @@ using PokeNeon.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace PokeNeon.ViewModels
 {
@@ -12,13 +14,18 @@ namespace PokeNeon.ViewModels
 
         public static ListViewModel Instance { get { return _instance; } }
 
+        public ICommand MyCommand { get; set; }
+
         public ObservableCollection<MyPokemon> ListePokemons
         {
             get { return GetValue<ObservableCollection<MyPokemon>>(); }
             set { SetValue(value); }
         }
 
+        public ICommand DonneesPokemon { get; set; }
+
         public ListViewModel() {
+            DonneesPokemon = new Command(GetList);
             GetList();
         }
 
@@ -27,37 +34,151 @@ namespace PokeNeon.ViewModels
             PokeApiClient pokeClient = new PokeApiClient();
             if (ListePokemons.Count == 0)
             {
-                for (var i = 1; i <= 151; i++)
+                for (var i = 1; i <= 50; i++)
                 {
                     Pokemon p = await Task.Run(() =>
                     pokeClient.GetResourceAsync<Pokemon>(i));
-
-                    if (p.Types.Count == 1)
-                    {
-                        MyPokemon monpoke = new MyPokemon
-                        {
-                            Nom = p.Name,
-                            Image = p.Sprites.FrontDefault,
-                            Id = "N° " + p.Id,
-                            Type1 = getTypeImg(p.Types[0].Type.Name),
-                            TypeColor = getTypeColor(p.Types[0].Type.Name)
-                        };
-                        ListePokemons.Add(monpoke);
-                    }
-                    else
-                    {
-                        MyPokemon monpoke = new MyPokemon
-                        {
-                            Nom = p.Name,
-                            Image = p.Sprites.FrontDefault,
-                            Id = "N° " + p.Id,
-                            Type1 = getTypeImg(p.Types[0].Type.Name),
-                            Type2 = getTypeImg(p.Types[1].Type.Name),
-                            TypeColor = getTypeColor(p.Types[0].Type.Name)
-                        };
-                        ListePokemons.Add(monpoke);
-                    }
+                    getPokemon(p);
                 }
+            }
+        }
+
+        public void getPokemon(Pokemon p)
+        {
+            if (p.Types.Count == 1 && p.Abilities.Count == 1)
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
+            }
+            else if (p.Types.Count == 1 && p.Abilities.Count == 2)
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Ability2 = p.Abilities[1].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
+            }
+            else if (p.Types.Count == 1 && p.Abilities.Count == 3)
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Ability2 = p.Abilities[1].Ability.Name,
+                    Ability3 = p.Abilities[2].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
+            }
+            else if (p.Types.Count == 2 && p.Abilities.Count == 1)
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    Type2 = getTypeImg(p.Types[1].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
+            }
+            else if (p.Types.Count == 2 && p.Abilities.Count == 2)
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    Type2 = getTypeImg(p.Types[1].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Ability2 = p.Abilities[1].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
+            }
+            else
+            {
+                MyPokemon monpoke = new MyPokemon
+                {
+                    Nom = p.Name,
+                    Image = p.Sprites.FrontDefault,
+                    Id = "N° " + p.Id,
+                    Type1 = getTypeImg(p.Types[0].Type.Name),
+                    Type2 = getTypeImg(p.Types[1].Type.Name),
+                    TypeColor = getTypeColor(p.Types[0].Type.Name),
+                    Height = "Height : " + p.Height,
+                    Weight = "Weight : " + p.Weight,
+                    Ability1 = p.Abilities[0].Ability.Name,
+                    Ability2 = p.Abilities[1].Ability.Name,
+                    Ability3 = p.Abilities[2].Ability.Name,
+                    Pv = p.Stats[0].BaseStat.ToString(),
+                    Attaque = p.Stats[1].BaseStat.ToString(),
+                    Defense = p.Stats[2].BaseStat.ToString(),
+                    Attaquespe = p.Stats[3].BaseStat.ToString(),
+                    Defensespe = p.Stats[4].BaseStat.ToString(),
+                    Vitesse = p.Stats[5].BaseStat.ToString()
+                };
+                ListePokemons.Add(monpoke);
             }
         }
 
@@ -65,7 +186,7 @@ namespace PokeNeon.ViewModels
         {
             switch(TypeName)
             {
-                case "grass": return "#78C850";
+                case "grass": return "#78C850   ";
                 case "fire": return "#F08030";
                 case "water": return "#6890F0";
                 case "normal": return "#A8A878";

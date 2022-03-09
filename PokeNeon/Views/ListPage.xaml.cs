@@ -1,9 +1,11 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Collections.ObjectModel;
 using PokeNeon.ViewModels;
-using System.Diagnostics;
 using System;
+using PokeNeon.Models;
+using System.Linq;
+using System.Windows.Input;
+using System.Diagnostics;
 
 namespace PokeNeon.Views
 {
@@ -17,9 +19,10 @@ namespace PokeNeon.Views
             BindingContext = ListViewModel.Instance;
         }
 
-        private async void AfficherDescription(object sender, EventArgs e)
+        private async void AfficherDescription(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new DescriptionPage());
+            MyPokemon current = (e.CurrentSelection.FirstOrDefault() as MyPokemon);
+            await Navigation.PushAsync(new DescriptionPage(current));
         }
     }
 }
