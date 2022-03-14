@@ -1,6 +1,9 @@
 PokeNeon.Droid.MainActivity, PokeNeon.Android;crc64913582a7dca3cb90.MainActivity
 PokeNeon.Droid.MainActivity;crc64913582a7dca3cb90.MainActivity
 pokeneon.droid.MainActivity;crc64913582a7dca3cb90.MainActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media;crc646957603ea1820544.MediaPickerActivity
+Plugin.Media.MediaPickerActivity;crc646957603ea1820544.MediaPickerActivity
+plugin.media.MediaPickerActivity;crc646957603ea1820544.MediaPickerActivity
 AndroidX.Activity.IOnBackPressedDispatcherOwner, Xamarin.AndroidX.Activity;androidx.activity.OnBackPressedDispatcherOwner
 AndroidX.Activity.IOnBackPressedDispatcherOwner;androidx.activity.OnBackPressedDispatcherOwner
 androidx.activity.OnBackPressedDispatcherOwner;androidx.activity.OnBackPressedDispatcherOwner

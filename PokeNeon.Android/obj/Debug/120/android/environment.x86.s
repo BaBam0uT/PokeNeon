@@ -35,7 +35,7 @@ application_config:
 	/* system_property_count */
 	.long	0
 	/* number_of_assemblies_in_apk */
-	.long	100
+	.long	106
 	/* bundled_assembly_name_width */
 	.long	70
 	/* android_package_name */
@@ -78,7 +78,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"ebbf506b-4083-4685-ac96-c5f7b1e2ab7a"
+	.asciz	"8a623940-f02b-4d5e-ad68-f6dacb61e306"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
@@ -335,6 +335,18 @@ app_system_properties:
 .L.env.buf.99:
 	.zero	70
 .L.env.buf.100:
+	.zero	70
+.L.env.buf.101:
+	.zero	70
+.L.env.buf.102:
+	.zero	70
+.L.env.buf.103:
+	.zero	70
+.L.env.buf.104:
+	.zero	70
+.L.env.buf.105:
+	.zero	70
+.L.env.buf.106:
 	.zero	70
 	/* Bundled assemblies data */
 	.section	.data.bundled_assemblies,"aw",@progbits
@@ -1642,4 +1654,82 @@ bundled_assemblies:
 	/* name */
 	.long	.L.env.buf.100
 
-	.size	bundled_assemblies, 2400
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.101
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.102
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.103
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.104
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.105
+
+	/* apk_fd */
+	.long	-1
+	/* data_offset */
+	.long	0
+	/* data_size */
+	.long	0
+	/* data */
+	.long	0
+	/* name_length */
+	.long	0
+	/* name */
+	.long	.L.env.buf.106
+
+	.size	bundled_assemblies, 2544

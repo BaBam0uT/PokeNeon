@@ -21,7 +21,7 @@
                    BackgroundColor="White"></Image>
             <StackLayout Orientation="Vertical"
                          Padding="0,5,0,5">
-                <Label Text="{Binding Id}"
+                <Label Text="{Binding IdPoke}"
                        FontAttributes="Bold"></Label>
                 <Label Text="{Binding Nom}"
                        FontAttributes="Bold"></Label>

@@ -6,6 +6,7 @@
     <ContentPage.Content>
         <FlexLayout Direction="Column">
             <Button Text="Ajouter"
+                    Clicked="OnButtonClicked"
                     BackgroundColor="Gray"
                     WidthRequest="100"
                     HeightRequest="40"
@@ -18,19 +19,50 @@
                          Margin="10,0,10,0"
                          BackgroundColor="Gray">
                 <Image Source="ajout.png"
+                       x:Name="selectionImage"
                        WidthRequest="150"
-                       BackgroundColor="White"></Image>
+                       BackgroundColor="White">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Handle_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
                 <StackLayout Orientation="Vertical"
                              WidthRequest="175">
-                    <Entry Placeholder="Saisir ID"
+                    <Entry x:Name="idEntry"
+                           Placeholder="Saisir ID"
                            FontSize="8"
                            HeightRequest="30"></Entry>
-                    <Entry Placeholder="Saisir Nom"
+                    <Entry x:Name="nameEntry"
+                           Placeholder="Saisir Nom"
                            FontSize="8"
                            HeightRequest="30"></Entry>
                     <Button Text="Choisir 1 ou 2 type(s)"
                             HeightRequest="30"
                             FontSize="8"></Button>
+                    <Picker x:Name="selectionType" Title="Choisissez 1 ou 2 type(s)">
+                        <Picker.Items>
+                            <x:String>Bug</x:String>
+                            <x:String>Dark</x:String>
+                            <x:String>Dragon</x:String>
+                            <x:String>Electric</x:String>
+                            <x:String>Fairy</x:String>
+                            <x:String>Fighting</x:String>
+                            <x:String>Fire</x:String>
+                            <x:String>Flying</x:String>
+                            <x:String>Ghost</x:String>
+                            <x:String>Grass</x:String>
+                            <x:String>Ground</x:String>
+                            <x:String>Ice</x:String>
+                            <x:String>Normal</x:String>
+                            <x:String>Poison</x:String>
+                            <x:String>Psychic</x:String>
+                            <x:String>Rock</x:String>
+                            <x:String>Steel</x:String>
+                            <x:String>Water</x:String>
+                        </Picker.Items>
+                    </Picker>
                     <Entry Placeholder="Saisir Taille"
                            FontSize="8"
                            HeightRequest="30"></Entry>

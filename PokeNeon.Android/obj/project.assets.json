@@ -124,6 +124,68 @@
           "lib/netstandard2.1/PokeApiNet.dll": {}
         }
       },
+      "sqlite-net-pcl/1.8.116": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.bundle_green": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLite-net.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_green/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3.android": "2.0.4",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3.android/2.0.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid80/SQLitePCLRaw.lib.e_sqlite3.android.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid80/SQLitePCLRaw.lib.e_sqlite3.android.dll": {}
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlite3/2.0.4": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        }
+      },
       "System.Buffers/4.4.0": {
         "type": "package",
         "compile": {
@@ -217,6 +279,22 @@
         },
         "runtime": {
           "lib/netstandard2.1/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.AndroidX.Core": "1.1.0",
+          "Xamarin.Essentials": "1.5.2"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid10.0/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid10.0/Plugin.Media.dll": {}
         }
       },
       "Xamarin.AndroidX.Activity/1.2.4.1": {
@@ -1757,8 +1835,10 @@
           "PokeApiNet": "3.0.3",
           "System.IO": "4.3.0",
           "System.Net.Requests": "4.3.0",
+          "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Xamarin.Forms": "5.0.0.2196",
+          "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
           "bin/placeholder/PokeNeon.dll": {}
@@ -1994,6 +2074,76 @@
         "lib/netstandard2.1/PokeApiNet.xml",
         "pokeapinet.3.0.3.nupkg.sha512",
         "pokeapinet.nuspec"
+      ]
+    },
+    "sqlite-net-pcl/1.8.116": {
+      "sha512": "W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
+      "type": "package",
+      "path": "sqlite-net-pcl/1.8.116",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "Logo-low.png",
+        "lib/netstandard2.0/SQLite-net.dll",
+        "lib/netstandard2.0/SQLite-net.xml",
+        "sqlite-net-pcl.1.8.116.nupkg.sha512",
+        "sqlite-net-pcl.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.bundle_green/2.0.4": {
+      "sha512": "ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.batteries_v2.dll",
+        "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
+        "lib/net461/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+        "sqlitepclraw.bundle_green.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.4": {
+      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.4.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.lib.e_sqlite3.android/2.0.4": {
+      "sha512": "M7evP2q/gosKlDvxtQ+T4h+MWNiBzfIis1eZr6jrQnh3H9md+74e2cni/b0vm2OymyV/zZp7cKfUgde57zvqwA==",
+      "type": "package",
+      "path": "sqlitepclraw.lib.e_sqlite3.android/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid80/SQLitePCLRaw.lib.e_sqlite3.android.dll",
+        "sqlitepclraw.lib.e_sqlite3.android.2.0.4.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.android.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.e_sqlite3/2.0.4": {
+      "sha512": "YiqCw+PfiPIuX2aZnEqt1ya5ldGm4ParIqzaRXtztDu8mdzZxOXVYOrKZazXg6nbwYbCP1H5mOYGmBFQ2W0M5g==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll",
+        "lib/uap10.0/SQLitePCLRaw.provider.e_sqlite3.dll",
+        "sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
+        "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
     "System.Buffers/4.4.0": {
@@ -2412,6 +2562,46 @@
         "system.text.encodings.web.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Xam.Plugin.Media/5.0.1": {
+      "sha512": "UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
+      "type": "package",
+      "path": "xam.plugin.media/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10.0/Plugin.Media.dll",
+        "lib/monoandroid10.0/Plugin.Media.pdb",
+        "lib/monoandroid10.0/Plugin.Media.xml",
+        "lib/monoandroid80/Plugin.Media.dll",
+        "lib/monoandroid80/Plugin.Media.pdb",
+        "lib/monoandroid80/Plugin.Media.xml",
+        "lib/monoandroid81/Plugin.Media.dll",
+        "lib/monoandroid81/Plugin.Media.pdb",
+        "lib/monoandroid81/Plugin.Media.xml",
+        "lib/monoandroid90/Plugin.Media.dll",
+        "lib/monoandroid90/Plugin.Media.pdb",
+        "lib/monoandroid90/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.pdb",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.pdb",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.pdb",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.16299/Plugin.Media.dll",
+        "lib/uap10.0.16299/Plugin.Media.pdb",
+        "lib/uap10.0.16299/Plugin.Media.pri",
+        "lib/uap10.0.16299/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.pdb",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.5.0.1.nupkg.sha512",
+        "xam.plugin.media.nuspec"
       ]
     },
     "Xamarin.AndroidX.Activity/1.2.4.1": {

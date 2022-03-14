@@ -1,5 +1,7 @@
 ﻿using PokeApiNet;
 using PokeNeon.Models;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -8,42 +10,37 @@ using Xamarin.Forms;
 
 namespace PokeNeon.ViewModels
 {
-    class ListViewModel : BaseViewModel
+    public class ListViewModel : BaseViewModel
     {
         private static ListViewModel _instance = new ListViewModel();
 
         public static ListViewModel Instance { get { return _instance; } }
 
-        public ICommand MyCommand { get; set; }
-
-        public ObservableCollection<MyPokemon> ListePokemons
+        public ObservableCollection<MyPokemon> ListePokemon
         {
             get { return GetValue<ObservableCollection<MyPokemon>>(); }
             set { SetValue(value); }
         }
 
-        public ICommand DonneesPokemon { get; set; }
-
         public ListViewModel() {
-            DonneesPokemon = new Command(GetList);
             GetList();
         }
 
         public async void GetList() {
-            ListePokemons = new ObservableCollection<MyPokemon>();
             PokeApiClient pokeClient = new PokeApiClient();
-            if (ListePokemons.Count == 0)
+            ListePokemon = new ObservableCollection<MyPokemon>();
+            if (ListePokemon.Count == 0)
             {
-                for (var i = 1; i <= 50; i++)
+                for (var i = 1; i <= 10; i++)
                 {
                     Pokemon p = await Task.Run(() =>
                     pokeClient.GetResourceAsync<Pokemon>(i));
-                    getPokemon(p);
+                    getListPokemon(p);
                 }
             }
         }
 
-        public void getPokemon(Pokemon p)
+        public async void getListPokemon(Pokemon p)
         {
             if (p.Types.Count == 1 && p.Abilities.Count == 1)
             {
@@ -51,7 +48,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
                     Height = "Height : " + p.Height,
@@ -64,7 +61,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 1 && p.Abilities.Count == 2)
             {
@@ -72,7 +70,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
                     Height = "Height : " + p.Height,
@@ -86,7 +84,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 1 && p.Abilities.Count == 3)
             {
@@ -94,7 +93,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
                     Height = "Height : " + p.Height,
@@ -109,7 +108,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 2 && p.Abilities.Count == 1)
             {
@@ -117,7 +117,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     Type2 = getTypeImg(p.Types[1].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
@@ -131,7 +131,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 2 && p.Abilities.Count == 2)
             {
@@ -139,7 +140,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     Type2 = getTypeImg(p.Types[1].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
@@ -154,7 +155,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
             else
             {
@@ -162,7 +164,7 @@ namespace PokeNeon.ViewModels
                 {
                     Nom = p.Name,
                     Image = p.Sprites.FrontDefault,
-                    Id = "N° " + p.Id,
+                    IdPoke = "N° " + p.Id,
                     Type1 = getTypeImg(p.Types[0].Type.Name),
                     Type2 = getTypeImg(p.Types[1].Type.Name),
                     TypeColor = getTypeColor(p.Types[0].Type.Name),
@@ -178,7 +180,8 @@ namespace PokeNeon.ViewModels
                     Defensespe = p.Stats[4].BaseStat.ToString(),
                     Vitesse = p.Stats[5].BaseStat.ToString()
                 };
-                ListePokemons.Add(monpoke);
+                await App.Database.SaveMyPokemonAsync(monpoke);
+                ListePokemon.Add(monpoke);
             }
         }
 
@@ -186,7 +189,7 @@ namespace PokeNeon.ViewModels
         {
             switch(TypeName)
             {
-                case "grass": return "#78C850   ";
+                case "grass": return "#78C850";
                 case "fire": return "#F08030";
                 case "water": return "#6890F0";
                 case "normal": return "#A8A878";

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PokeNeon.Views.ListPage"
-             BackgroundImage="wallpaper.jpg">
+             BackgroundImage="wallpaper.jpg"
+             BackgroundColor="blue">
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -20,7 +21,8 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    <CollectionView ItemsSource="{Binding ListePokemons}"
+    <CollectionView x:Name="collectionView"
+                    ItemsSource="{Binding ListePokemons}"
                     SelectionMode="Single"
                     SelectionChanged="AfficherDescription">
 
@@ -37,7 +39,7 @@
                                BackgroundColor="White"  
                                HeightRequest="100"/>
                         <Label Grid.Column="0"
-                               Text="{Binding Id}"
+                               Text="{Binding IdPoke}"
                                FontAttributes="Bold"
                                Margin="10,0,0,0"/>
                         <Label Grid.Column="0"

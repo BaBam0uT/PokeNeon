@@ -19,6 +19,12 @@ namespace PokeNeon.Views
             BindingContext = ListViewModel.Instance;
         }
 
+        /*protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            collectionView.ItemsSource = await App.Database.GetMyPokemonAsync();
+        }*/
+
         private async void AfficherDescription(object sender, SelectionChangedEventArgs e)
         {
             MyPokemon current = (e.CurrentSelection.FirstOrDefault() as MyPokemon);
