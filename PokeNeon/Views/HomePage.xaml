@@ -6,7 +6,7 @@
 
     <FlexLayout Direction="Column">
         <Frame 
-           BackgroundColor="Gray"
+           BackgroundColor="#999999"
            Padding="5">
             <StackLayout Orientation="Horizontal">
                 <Image Margin="10,0,0,0"
@@ -22,45 +22,55 @@
                        WidthRequest="40"/>
             </StackLayout>
         </Frame>
-        <Label Text="Bienvenue !" 
+        <Label Text="Bienvenue à vous !" 
                TextColor="White" 
                HorizontalTextAlignment="Middle" 
-               FontSize="12" 
-               Margin="10,10,10,0" 
-               Padding="0,5,0,0" 
-               BackgroundColor="#252525"/>
-        <Label Text="Ici, vous pourrez retrouver toutes les informations sur n'importe quel Pokémon existant à ce jour, mais vous pourrez également en ajouter un nouveau en détaillant chaque information le concernant"  
+               FontSize="16" 
+               Margin="10,30,10,0" 
+               Padding="0,10,0,0" 
+               HeightRequest="30"
+               BackgroundColor="#505050"/>
+        <Label Text="Ici, vous pouvez retrouver toutes les informations sur n'importe quel Pokémon existant à ce jour, mais vous pouvez également en ajouter un nouveau en détaillant chaque information le concernant"  
                TextColor="White" 
                FontSize="12" 
                HorizontalTextAlignment="Center" 
                Margin="10,0,10,0" 
-               Padding="5,0,5,5" 
-               BackgroundColor="#252525"/>
-        <Label Text="Là, tu es sur la page d'accueil, mais tu peux changer d'onglet ci-dessous !"  
+               Padding="10"
+               HeightRequest="90"
+               BackgroundColor="#505050"/>
+        <Label Text="De plus ! Si vous avez désactivé le son de votre téléphone, je vous conseille de le réactiver, puisque nous vous avons réservé une petite musique relaxante. Cette musique est un remix d'une musique tirée du jeu Pokemon et a été réalisé par l'artiste Mikel !"  
+               TextColor="White" 
+               FontSize="12" 
+               HorizontalTextAlignment="Center" 
+               Margin="10,0,10,0" 
+               Padding="10"
+               HeightRequest="90"
+               BackgroundColor="#505050"/>
+        <Label Text="Là, tu es sur la page d'accueil, mais tu peux changer d'onglet ci-dessous : "  
                TextColor="White" 
                FontSize="12" 
                HorizontalTextAlignment="Middle" 
-               Margin="10,300,10,0" 
-               Padding="0,5,0,0"
-               BackgroundColor="#252525"/>
+               Margin="10,0,10,0" 
+               Padding="10,10,10,5"
+               BackgroundColor="#505050"/>
         <Label Text="- Le logo Poké Ball permet de voir la liste de tous les Pokémon du jeu"  
                TextColor="White" 
                FontSize="12" 
                HorizontalTextAlignment="Middle" 
                Margin="10,0,10,0" 
-               BackgroundColor="#252525"/>
+               BackgroundColor="#505050"/>
         <Label Text="- Le logo + permet d'ajouter un Pokémon à la liste"  
                TextColor="White" 
                FontSize="12" 
                HorizontalTextAlignment="Middle" 
                Margin="10,0,10,0" 
-               BackgroundColor="#252525"/>
+               BackgroundColor="#505050"/>
         <Label Text="- Le logo loupe permet de rechercher n'importe quel Pokémon"  
                TextColor="White" 
                FontSize="12" 
                HorizontalTextAlignment="Middle" 
                Margin="10,0,10,0"
-               Padding="0,0,0,5"
-               BackgroundColor="#252525"/>
+               Padding="0,0,0,15"
+               BackgroundColor="#505050"/>
     </FlexLayout>
 </ContentPage>

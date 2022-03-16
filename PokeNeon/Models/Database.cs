@@ -17,6 +17,7 @@ namespace PokeNeon
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<MyPokemon>();
+            // _database.DeleteAllAsync<MyPokemon>();
         }
     }
 }

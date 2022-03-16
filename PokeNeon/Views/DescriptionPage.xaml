@@ -6,7 +6,7 @@
 
     <FlexLayout Direction="Column">
         <Button Text="Retour"
-                BackgroundColor="Gray"
+                BackgroundColor="#999999"
                 WidthRequest="100"
                 HeightRequest="40"
                 Margin="10,20,5,20"
@@ -63,7 +63,7 @@
                    Grid.Column="1"
                    Grid.Row="0"/>
             <Label Text="Attaque :"
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -71,7 +71,7 @@
                    Grid.Column="0"
                    Grid.Row="1"/>
             <Label Text="{Binding Attaque}" 
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -95,7 +95,7 @@
                    Grid.Column="1"
                    Grid.Row="2"/>
             <Label Text="Attaque spéciale :"
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -103,7 +103,7 @@
                    Grid.Column="0"
                    Grid.Row="3"/>
             <Label Text="{Binding Attaquespe}" 
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -127,7 +127,7 @@
                    Grid.Column="1"
                    Grid.Row="4"/>
             <Label Text="Vitesse :"
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -135,7 +135,7 @@
                    Grid.Column="0"
                    Grid.Row="5"/>
             <Label Text="{Binding Vitesse}" 
-                   BackgroundColor="Gray"
+                   BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"

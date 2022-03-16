@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Media;
+using System;
 using System.IO;
 using Xamarin.Forms;
 
@@ -24,7 +25,6 @@ namespace PokeNeon
         public App()
         {
             InitializeComponent();
-
             MainPage = new AppShell();
         }
 

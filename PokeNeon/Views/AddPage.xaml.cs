@@ -34,14 +34,14 @@ namespace PokeNeon.Views
             {
                 MyPokemon nouvPoke = new MyPokemon
                 {
-                    Nom = nameEntry.Text,
+                    Nom = nameEntry.Text.ToLower(),
                     Image = selectedImagePath,
                     IdPoke = "N° " + idEntry.Text,
                     TypeColor = ListViewModel.Instance.getTypeColor(type1Picker.SelectedItem.ToString().ToLower()),
                     Type1 = type1Picker.SelectedItem + ".png",
                     Type2 = type2Picker.SelectedItem + ".png",
-                    Height = "Height : " + heightEntry.Text,
-                    Weight = "Weight : " + weightEntry.Text,
+                    Height = "Height : " + heightEntry.Text + "m",
+                    Weight = "Weight : " + weightEntry.Text + "kg",
                     Ability1 = ability1Entry.Text,
                     Ability2 = ability2Entry.Text,
                     Ability3 = ability3Entry.Text,

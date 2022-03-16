@@ -7,7 +7,7 @@
         <FlexLayout Direction="Column">
             <Button Text="Ajouter"
                     Clicked="OnButtonClicked"
-                    BackgroundColor="Gray"
+                    BackgroundColor="#999999"
                     WidthRequest="100"
                     HeightRequest="40"
                     FontSize="12"
@@ -17,7 +17,7 @@
                     BorderWidth="2"></Button>
             <StackLayout Orientation="Horizontal"
                          Margin="10,0,10,0"
-                         BackgroundColor="Gray">
+                         BackgroundColor="#999999">
                 <Image Source="ajout.png"
                        x:Name="selectionImage"
                        WidthRequest="150"
@@ -135,7 +135,7 @@
                        Grid.Column="1"
                        Grid.Row="0"/>
                 <Label Text="Attaque :"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        TextColor="Black"
                        FontSize="8"
                        Grid.Column="0"
@@ -146,7 +146,7 @@
                        Placeholder="Saisir Attaque" 
                        PlaceholderColor="Black"
                        TextColor="Black"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
                        Grid.Row="1"/>
@@ -167,7 +167,7 @@
                        Grid.Column="1"
                        Grid.Row="2"/>
                 <Label Text="Attaque spéciale :"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        TextColor="Black"
                        FontSize="8"
                        Grid.Column="0"
@@ -178,7 +178,7 @@
                        Placeholder="Saisir Attaque Spéciale"
                        PlaceholderColor="Black"
                        TextColor="Black"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
                        Grid.Row="3"/>
@@ -199,7 +199,7 @@
                        Grid.Column="1"
                        Grid.Row="4"/>
                 <Label Text="Vitesse :"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        TextColor="Black"
                        FontSize="8"
                        Grid.Column="0"
@@ -210,7 +210,7 @@
                        Placeholder="Saisir Vitesse" 
                        PlaceholderColor="Black"
                        TextColor="Black"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
                        Grid.Row="5"/>

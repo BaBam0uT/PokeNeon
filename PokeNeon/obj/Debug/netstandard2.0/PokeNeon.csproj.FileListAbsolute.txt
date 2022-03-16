@@ -2,7 +2,10 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeN
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeNeon.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\ref\PokeNeon.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\PokeNeon.pdb
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\Mono.Android.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\System.Drawing.Common.dll
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\Mono.Android.pdb
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\bin\Debug\netstandard2.0\Mono.Android.xml
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.csproj.AssemblyReference.cache
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\PokeNeon.GeneratedMSBuildEditorConfig.editorconfig
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon\obj\Debug\netstandard2.0\App.xaml.g.cs

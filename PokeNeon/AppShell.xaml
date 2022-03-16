@@ -3,7 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:PokeNeon.Views"
        x:Class="PokeNeon.AppShell"
-       TabBarBackgroundColor="#7E7E7E"
+       TabBarBackgroundColor="#999999"
        NavBarIsVisible="False">
 
     <Shell.Resources>

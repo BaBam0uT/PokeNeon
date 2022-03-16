@@ -22,7 +22,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="Gray"
+            <Frame BackgroundColor="#999999"
                    Padding="5">
                 <StackLayout Orientation="Horizontal">
                     <Image Margin="10,0,0,0"
@@ -42,7 +42,7 @@
                        CancelButtonColor="White"
                        PlaceholderColor="White"
                        TextColor="White"
-                       BackgroundColor="Gray"
+                       BackgroundColor="#999999"
                        TextTransform="Lowercase"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"
