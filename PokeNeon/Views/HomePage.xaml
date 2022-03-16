@@ -27,7 +27,7 @@
                HorizontalTextAlignment="Middle" 
                FontSize="16" 
                Margin="10,30,10,0" 
-               Padding="0,10,0,0" 
+               Padding="0,10,0,0"
                HeightRequest="30"
                BackgroundColor="#505050"/>
         <Label Text="Ici, vous pouvez retrouver toutes les informations sur n'importe quel Pokémon existant à ce jour, mais vous pouvez également en ajouter un nouveau en détaillant chaque information le concernant"  
