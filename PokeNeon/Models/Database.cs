@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using PokeNeon.Models;
@@ -18,30 +17,6 @@ namespace PokeNeon
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<MyPokemon>();
-            // MyPokemon poke = new MyPokemon(GetNewPokemonAsync(1));
-            // Debug.WriteLine("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL" + poke.Nom);
         }
-
-        public Task<List<MyPokemon>> GetMyPokemonAsync()
-        {
-            return _database.Table<MyPokemon>().ToListAsync();
-        }
-
-        public Task<int> SaveMyPokemonAsync(MyPokemon myPokemon)
-        {
-            return _database.InsertAsync(myPokemon);
-        }
-
-        public Task<int> GetCountAsync()
-        {
-            return _database.Table<MyPokemon>().CountAsync();
-        }
-
-        public async void GetNewPokemonAsync(int id)
-        {
-            MyPokemon poke = new MyPokemon();
-            poke = await _database.Table<MyPokemon>().ElementAtAsync(id);
-        }
-
     }
 }

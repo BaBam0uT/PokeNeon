@@ -10,7 +10,7 @@
                 WidthRequest="100"
                 HeightRequest="40"
                 Margin="10,20,5,20"
-                BorderColor="#A6A905"
+                BorderColor="White"
                 BorderWidth="2"
                 Clicked="RevenirListe"/>
         <StackLayout Orientation="Horizontal"

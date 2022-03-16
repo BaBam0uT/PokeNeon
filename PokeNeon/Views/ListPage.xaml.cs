@@ -13,22 +13,19 @@ namespace PokeNeon.Views
     public partial class ListPage : ContentPage
     {
 
+        public Boolean fromSearchPage;
+
         public ListPage()
         {
             InitializeComponent();
             BindingContext = ListViewModel.Instance;
         }
 
-        /*protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            collectionView.ItemsSource = await App.Database.GetMyPokemonAsync();
-        }*/
-
         private async void AfficherDescription(object sender, SelectionChangedEventArgs e)
         {
+            fromSearchPage = false;
             MyPokemon current = (e.CurrentSelection.FirstOrDefault() as MyPokemon);
-            await Navigation.PushAsync(new DescriptionPage(current));
+            await Navigation.PushAsync(new DescriptionPage(current, fromSearchPage));
         }
     }
 }

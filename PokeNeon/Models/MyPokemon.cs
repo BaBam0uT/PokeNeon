@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System;
 
 namespace PokeNeon.Models
 {
@@ -23,5 +24,6 @@ namespace PokeNeon.Models
         public string Attaquespe { get; set; }
         public string Defensespe { get; set; }
         public string Vitesse { get; set; }
+        public Boolean isNew { get; set; }
     }
 }

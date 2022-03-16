@@ -3,13 +3,13 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:PokeNeon.Views"
        x:Class="PokeNeon.AppShell"
-       TabBarBackgroundColor="#545454"
+       TabBarBackgroundColor="#7E7E7E"
        NavBarIsVisible="False">
 
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.TitleColor" Value="#A6A905" />
+                <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.UnselectedColor" Value="Black" />
             </Style>
             <Style TargetType="TabBar"  BasedOn="{StaticResource BaseStyle}" />

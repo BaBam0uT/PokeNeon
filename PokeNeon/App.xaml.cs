@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using Xamarin.Forms;
 
@@ -16,7 +15,7 @@ namespace PokeNeon
             {
                 if (database == null)
                 {
-                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "pokeneon.db3"));
                 }
                 return database;
             }

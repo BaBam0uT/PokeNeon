@@ -676,3 +676,4 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_C
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\son_menu.wav

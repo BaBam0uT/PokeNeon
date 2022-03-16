@@ -1,9 +1,11 @@
 ﻿using PokeApiNet;
 using PokeNeon.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -12,9 +14,16 @@ namespace PokeNeon.ViewModels
 {
     public class ListViewModel : BaseViewModel
     {
+
         private static ListViewModel _instance = new ListViewModel();
 
         public static ListViewModel Instance { get { return _instance; } }
+
+        private const int NB_POKEMON_API_A_AFFICHER = 50;
+
+        public int nbrPokeDatabase = 0;
+
+        public MyPokemon pokemon;
 
         public ObservableCollection<MyPokemon> ListePokemon
         {
@@ -29,13 +38,34 @@ namespace PokeNeon.ViewModels
         public async void GetList() {
             PokeApiClient pokeClient = new PokeApiClient();
             ListePokemon = new ObservableCollection<MyPokemon>();
+            nbrPokeDatabase = await App.Database._database.Table<MyPokemon>().CountAsync();
+            Debug.WriteLine("Nombre de Poke dans la base de données : " + nbrPokeDatabase);
             if (ListePokemon.Count == 0)
             {
-                for (var i = 1; i <= 10; i++)
+                for (var i = 0; i < nbrPokeDatabase; i++)
                 {
-                    Pokemon p = await Task.Run(() =>
-                    pokeClient.GetResourceAsync<Pokemon>(i));
-                    getListPokemon(p);
+                    pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                    if (pokemon.isNew == true)
+                    {
+                        ListePokemon.Add(pokemon);
+                    }
+                }
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    for (var j = 1; j <= NB_POKEMON_API_A_AFFICHER; j++)
+                    {
+                        Pokemon p = await Task.Run(() =>
+                        pokeClient.GetResourceAsync<Pokemon>(j));
+                        getListPokemon(p);
+                    }
+                }
+                else
+                {
+                    for (var j = 0; j < NB_POKEMON_API_A_AFFICHER; j++)
+                    {
+                        pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(j);
+                        ListePokemon.Add(pokemon);
+                    }
                 }
             }
         }
@@ -59,9 +89,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 1 && p.Abilities.Count == 2)
@@ -82,9 +116,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 1 && p.Abilities.Count == 3)
@@ -106,9 +144,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 2 && p.Abilities.Count == 1)
@@ -129,9 +171,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
             else if (p.Types.Count == 2 && p.Abilities.Count == 2)
@@ -153,9 +199,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
             else
@@ -178,9 +228,13 @@ namespace PokeNeon.ViewModels
                     Defense = p.Stats[2].BaseStat.ToString(),
                     Attaquespe = p.Stats[3].BaseStat.ToString(),
                     Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString()
+                    Vitesse = p.Stats[5].BaseStat.ToString(),
+                    isNew = false
                 };
-                await App.Database.SaveMyPokemonAsync(monpoke);
+                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                {
+                    await App.Database._database.InsertAsync(monpoke);
+                }
                 ListePokemon.Add(monpoke);
             }
         }

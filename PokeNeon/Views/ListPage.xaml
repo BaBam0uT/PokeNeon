@@ -21,8 +21,7 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    <CollectionView x:Name="collectionView"
-                    ItemsSource="{Binding ListePokemons}"
+    <CollectionView ItemsSource="{Binding ListePokemon}"
                     SelectionMode="Single"
                     SelectionChanged="AfficherDescription">
 
@@ -50,11 +49,10 @@
                             <Image Grid.Column="0"
                                    Source="{Binding Type1}"/>
                             <Image Grid.Column="0"
-                                   Source="{ Binding Type2}"
+                                   Source="{Binding Type2}"
                                    WidthRequest="100"/>
                         </FlexLayout>
                     </StackLayout>
-
                 </Grid>
             </DataTemplate>
         </CollectionView.ItemTemplate>

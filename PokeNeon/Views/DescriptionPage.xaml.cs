@@ -9,15 +9,26 @@ namespace PokeNeon.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DescriptionPage : ContentPage
     {
-        public DescriptionPage(MyPokemon pokemon)
+
+        public Boolean fromSearchPage_;
+
+        public DescriptionPage(MyPokemon pokemon, Boolean fromSearchPage)
         {
             InitializeComponent();
             BindingContext = pokemon;
+            fromSearchPage_ = fromSearchPage;
         }
 
         private async void RevenirListe(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ListPage());
+            if (fromSearchPage_ == true)
+            {
+                await Navigation.PushAsync(new SearchPage());
+            }
+            else
+            {
+                await Navigation.PushAsync(new ListPage());
+            }
         }
     }
 }

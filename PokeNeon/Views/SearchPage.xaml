@@ -3,11 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PokeNeon.Views.SearchPage"
              BackgroundImage="wallpaper.jpg">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame BackgroundColor="Gray"
+                   Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Image Margin="10,0,0,0"
+                           Source="logo.png" 
+                           WidthRequest="40"/>
+                    <Label Text="PokeNeon" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="CenterAndExpand" 
+                           TextColor="White" 
+                           FontSize="20"/>
+                    <Image Margin="0,0,10,0"
+                           Source="logo.png" 
+                           WidthRequest="40"/>
+                </StackLayout>
+            </Frame>
+            <SearchBar Placeholder="Chercher le nom d'un Pokemon"
+                       CancelButtonColor="White"
+                       PlaceholderColor="White"
+                       TextColor="White"
+                       BackgroundColor="Gray"
+                       TextTransform="Lowercase"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"
+                       TextChanged="AffichageDesPokemon"
+                       Margin="5"/>
+            <CollectionView x:Name="listview"
+                            SelectionMode="Single"
+                            SelectionChanged="AfficherDescription"
+                            Margin="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="3">
+                            <StackLayout Orientation="Horizontal"
+                                     BackgroundColor="{Binding TypeColor}"
+                                     Padding="5">
+                                <Image Grid.Column="0"
+                                    Source="{Binding Image}"
+                                   WidthRequest="60"></Image>
+                                <Label Grid.Column="1"
+                                       Text="{Binding IdPoke}"
+                                   VerticalTextAlignment="Center"
+                                   Padding="10,0,0,0"></Label>
+                                <Label Grid.Column="2"
+                                       Text="{Binding Nom}"
+                                   VerticalTextAlignment="Center"
+                                   Padding="10,0,15,0"
+                                       WidthRequest="100"></Label>
+                                <Image Grid.Column="3"
+                                       Source="{Binding Type1}"
+                                   WidthRequest="50"></Image>
+                                <Image Grid.Column="4"
+                                       Source="{Binding Type2}"
+                                   WidthRequest="50"></Image>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
