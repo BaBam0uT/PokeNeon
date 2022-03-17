@@ -3,11 +3,6 @@ using Plugin.Media.Abstractions;
 using PokeNeon.Models;
 using PokeNeon.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -54,6 +49,7 @@ namespace PokeNeon.Views
                     isNew = true
                 };
                 ListViewModel.Instance.ListePokemon.Insert(0, nouvPoke);
+                ListViewModel.Instance.nbPokeAjoute++;
                 await App.Database._database.InsertAsync(nouvPoke);
 
                 nameEntry.Text = nameEntry.Text = string.Empty;
@@ -73,6 +69,7 @@ namespace PokeNeon.Views
                 speattEntry.Text = speattEntry.Text = string.Empty;
                 spedefEntry.Text = spedefEntry.Text = string.Empty;
                 speEntry.Text = speEntry.Text = string.Empty;
+                addLabel.IsVisible = true;
             }
             else
             {

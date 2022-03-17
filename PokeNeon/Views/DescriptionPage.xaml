@@ -5,14 +5,22 @@
              BackgroundImage="wallpaper.jpg">
 
     <FlexLayout Direction="Column">
-        <Button Text="Retour"
+        <StackLayout Orientation="Horizontal"
+                     Spacing="150">
+            <Button Text="Retour"
                 BackgroundColor="#999999"
-                WidthRequest="100"
-                HeightRequest="40"
-                Margin="10,20,5,20"
+                Margin="10,20,0,20"
                 BorderColor="White"
                 BorderWidth="2"
                 Clicked="RevenirListe"/>
+            <Button Text="Supprimer"
+                BackgroundColor="#999999"
+                Margin="0,20,0,20"
+                BorderColor="White"
+                BorderWidth="2"
+                IsVisible="{Binding isNew}"
+                Clicked="SupprimerPoke"/>
+        </StackLayout>
         <StackLayout Orientation="Horizontal"
                      Margin="10,0,10,25"
                      BackgroundColor="{Binding TypeColor}">

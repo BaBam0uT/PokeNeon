@@ -4,8 +4,6 @@ using PokeNeon.ViewModels;
 using System;
 using PokeNeon.Models;
 using System.Linq;
-using System.Windows.Input;
-using System.Diagnostics;
 
 namespace PokeNeon.Views
 {

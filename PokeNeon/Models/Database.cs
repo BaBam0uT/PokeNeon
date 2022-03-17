@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using PokeNeon.Models;
+﻿using PokeNeon.Models;
 using SQLite;
 
 namespace PokeNeon

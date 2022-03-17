@@ -5,16 +5,27 @@
              BackgroundImage="wallpaper.jpg">
     <ContentPage.Content>
         <FlexLayout Direction="Column">
-            <Button Text="Ajouter"
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Ajouter"
                     Clicked="OnButtonClicked"
-                    BackgroundColor="#999999"
-                    WidthRequest="100"
                     HeightRequest="40"
+                    WidthRequest="90"
+                    BackgroundColor="#999999"
                     FontSize="12"
                     FontAttributes="Bold"
                     Margin="10,10,5,10"
                     BorderColor="White"
                     BorderWidth="2"></Button>
+                <Label x:Name = "addLabel" 
+                       Text="Votre nouveau Pokemon a bien été ajouté !"
+                       FontSize="13"
+                       FontAttributes="Bold"
+                       BackgroundColor="#999999"
+                       Padding="5,0,5,0"
+                       VerticalOptions="Center"
+                       HeightRequest="20"
+                       IsVisible="False"></Label>
+            </StackLayout>
             <StackLayout Orientation="Horizontal"
                          Margin="10,0,10,0"
                          BackgroundColor="#999999">
@@ -33,11 +44,14 @@
                     <Entry x:Name="idEntry"
                            Placeholder="Saisir ID"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"
+                           Keyboard="Numeric"></Entry>
                     <Entry x:Name="nameEntry"
                            Placeholder="Saisir Nom"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"></Entry>
                     <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="Center"
                                  Spacing="5">
@@ -97,23 +111,30 @@
                     <Entry x:Name="heightEntry"
                            Placeholder="Saisir Taille"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"
+                           Keyboard="Numeric"></Entry>
                     <Entry x:Name="weightEntry"
                            Placeholder="Saisir Poids"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"
+                           Keyboard="Numeric"></Entry>
                     <Entry x:Name="ability1Entry"
                            Placeholder="Saisir Talent 1"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"></Entry>
                     <Entry x:Name="ability2Entry"
                            Placeholder="Saisir Talent 2 (Optionnel)"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"></Entry>
                     <Entry x:Name="ability3Entry"
                            Placeholder="Saisir Talent 3 (Optionnel)"
                            FontSize="8"
-                           HeightRequest="30"></Entry>
+                           HeightRequest="30"
+                           MaxLength="10"></Entry>
                 </StackLayout>
             </StackLayout>
             <Grid HeightRequest="210"
@@ -133,7 +154,9 @@
                        BackgroundColor="LightGray"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="0"/>
+                       Grid.Row="0"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
                 <Label Text="Attaque :"
                        BackgroundColor="#999999"
                        TextColor="Black"
@@ -149,7 +172,9 @@
                        BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="1"/>
+                       Grid.Row="1"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
                 <Label Text="Défense :"
                        BackgroundColor="LightGray"
                        TextColor="Black"
@@ -165,7 +190,9 @@
                        BackgroundColor="LightGray"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="2"/>
+                       Grid.Row="2"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
                 <Label Text="Attaque spéciale :"
                        BackgroundColor="#999999"
                        TextColor="Black"
@@ -181,7 +208,9 @@
                        BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="3"/>
+                       Grid.Row="3"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
                 <Label Text="Défense spéciale :"
                        BackgroundColor="LightGray"
                        TextColor="Black"
@@ -197,7 +226,9 @@
                        BackgroundColor="LightGray"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="4"/>
+                       Grid.Row="4"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
                 <Label Text="Vitesse :"
                        BackgroundColor="#999999"
                        TextColor="Black"
@@ -213,7 +244,9 @@
                        BackgroundColor="#999999"
                        FontSize="8"
                        Grid.Column="1"
-                       Grid.Row="5"/>
+                       Grid.Row="5"
+                       MaxLength="10"
+                       Keyboard="Numeric"/>
             </Grid>
         </FlexLayout>
     </ContentPage.Content>

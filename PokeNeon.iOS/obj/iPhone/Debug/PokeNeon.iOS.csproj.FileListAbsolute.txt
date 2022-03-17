@@ -67,10 +67,7 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\zh-HK\Xam
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\PokeNeon.dll
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\Mono.Android.dll
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\PokeNeon.pdb
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\Mono.Android.pdb
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\bin\iPhone\Debug\Mono.Android.xml
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\actool\_ProcessedImageAssetsPath.items

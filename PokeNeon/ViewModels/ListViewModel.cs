@@ -1,14 +1,7 @@
 ﻿using PokeApiNet;
 using PokeNeon.Models;
-using SQLite;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace PokeNeon.ViewModels
 {
@@ -19,7 +12,9 @@ namespace PokeNeon.ViewModels
 
         public static ListViewModel Instance { get { return _instance; } }
 
-        private const int NB_POKEMON_API_A_AFFICHER = 50;
+        public const int NOMBRE_POKE_API_AU_DEMARRAGE = 50;
+
+        public int nbPokeAjoute = 0;
 
         public int nbrPokeDatabase = 0;
 
@@ -39,7 +34,6 @@ namespace PokeNeon.ViewModels
             PokeApiClient pokeClient = new PokeApiClient();
             ListePokemon = new ObservableCollection<MyPokemon>();
             nbrPokeDatabase = await App.Database._database.Table<MyPokemon>().CountAsync();
-            Debug.WriteLine("Nombre de Poke dans la base de données : " + nbrPokeDatabase);
             if (ListePokemon.Count == 0)
             {
                 for (var i = 0; i < nbrPokeDatabase; i++)
@@ -48,11 +42,12 @@ namespace PokeNeon.ViewModels
                     if (pokemon.isNew == true)
                     {
                         ListePokemon.Add(pokemon);
+                        nbPokeAjoute++;
                     }
                 }
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase <= NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
-                    for (var j = 1; j <= NB_POKEMON_API_A_AFFICHER; j++)
+                    for (var j = 1; j <= NOMBRE_POKE_API_AU_DEMARRAGE; j++)
                     {
                         Pokemon p = await Task.Run(() =>
                         pokeClient.GetResourceAsync<Pokemon>(j));
@@ -61,10 +56,63 @@ namespace PokeNeon.ViewModels
                 }
                 else
                 {
-                    for (var j = 0; j < NB_POKEMON_API_A_AFFICHER; j++)
+                    for (var j = 0; j < NOMBRE_POKE_API_AU_DEMARRAGE; j++)
                     {
                         pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(j);
                         ListePokemon.Add(pokemon);
+                    }
+                }
+            }
+        }
+
+        public async Task ChangeList(int nbPokeVoulu)
+        {
+            PokeApiClient pokeClient = new PokeApiClient();
+            if (nbPokeVoulu < ListePokemon.Count)
+            {
+                for (var i = ListePokemon.Count; i > nbPokeVoulu + nbPokeAjoute; i--)
+                {
+                    ListePokemon.RemoveAt(i - 1);
+                }
+            }
+            else if (nbPokeVoulu > ListePokemon.Count)
+            {
+                // Si le nombre de Poke de l'api est inférieur à 50
+                if (ListePokemon.Count - nbPokeAjoute < NOMBRE_POKE_API_AU_DEMARRAGE)
+                {
+                    // Et si le nombre de Poke voulu est supérieur à 50
+                    if (nbPokeVoulu > NOMBRE_POKE_API_AU_DEMARRAGE)
+                    {
+                        for (var i = ListePokemon.Count - nbPokeAjoute; i < NOMBRE_POKE_API_AU_DEMARRAGE; i++)
+                        {
+                            pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                            ListePokemon.Add(pokemon);
+                        }
+                        for (var j = NOMBRE_POKE_API_AU_DEMARRAGE; j < nbPokeVoulu; j++)
+                        {
+                            Pokemon p = await Task.Run(() =>
+                            pokeClient.GetResourceAsync<Pokemon>(j + 1));
+                            getListPokemon(p);
+                        }
+                    }
+                    else
+                    {
+                        // Et si le nombre de Poke voulu est inférieur ou égal à 50
+                        for (var i = ListePokemon.Count - nbPokeAjoute; i < nbPokeVoulu; i++)
+                        {
+                            pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                            ListePokemon.Add(pokemon);
+                        }
+                    }
+                }
+                // Si le nombre de Poke est supérieur ou égal à 50
+                else
+                {
+                    for (var j = ListePokemon.Count - nbPokeAjoute; j < nbPokeVoulu; j++)
+                    {
+                        Pokemon p = await Task.Run(() =>
+                        pokeClient.GetResourceAsync<Pokemon>(j + 1));
+                        getListPokemon(p);
                     }
                 }
             }
@@ -92,7 +140,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
@@ -119,7 +167,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
@@ -147,7 +195,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
@@ -174,7 +222,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
@@ -202,7 +250,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
@@ -231,7 +279,7 @@ namespace PokeNeon.ViewModels
                     Vitesse = p.Stats[5].BaseStat.ToString(),
                     isNew = false
                 };
-                if (nbrPokeDatabase <= NB_POKEMON_API_A_AFFICHER)
+                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
                 {
                     await App.Database._database.InsertAsync(monpoke);
                 }
