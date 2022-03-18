@@ -693,7 +693,7 @@ public final class R {
 		public static final int btn_radio_off_to_on_mtrl_animation = 0x7f07005e;
 		public static final int btn_radio_on_mtrl = 0x7f07005f;
 		public static final int btn_radio_on_to_off_mtrl_animation = 0x7f070060;
-		public static final int ic_arrow_down_24dp = 0x7f070071;
+		public static final int ic_arrow_down_24dp = 0x7f070072;
 		public static final int notification_action_background = 0x7f070092;
 		public static final int notification_bg = 0x7f070093;
 		public static final int notification_bg_low = 0x7f070094;

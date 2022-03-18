@@ -17,20 +17,20 @@
     </Shell.Resources>
 
     <TabBar>
-        <Tab Icon="accueil.png"
-             Title="Accueil">
+        <Tab Icon="home.png"
+             Title="Home">
             <views:HomePage/>
         </Tab>
         <Tab Icon="poke_ball.png"
-             Title="Pokédex">
+             Title="Pokedex">
             <views:ListPage />
         </Tab>
-        <Tab Icon="ajout.png"
-             Title="Ajouter">
+        <Tab Icon="add.png"
+             Title="Add">
             <views:AddPage/>
         </Tab>
-        <Tab Icon="recherche.png"
-             Title="Rechercher">
+        <Tab Icon="search.png"
+             Title="Search">
             <views:SearchPage/>
         </Tab>
     </TabBar>

@@ -19,7 +19,9 @@ namespace PokeNeon.Views
             BindingContext = ListViewModel.Instance;
         }
 
-        private async void AfficherDescription(object sender, SelectionChangedEventArgs e)
+        // Méthode asynchrone qui permet d'afficher la page de Description du Pokémon sur lequel on appuie et mets le booléen fromSearchPage à false pour le retour de la DescriptionPage à la ListPage
+        // Entrée : un object sender, ainsi qu'une variable e de type SelectionChangedEventArgs
+        public async void DisplayDescription(object sender, SelectionChangedEventArgs e)
         {
             fromSearchPage = false;
             MyPokemon current = (e.CurrentSelection.FirstOrDefault() as MyPokemon);

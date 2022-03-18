@@ -66,9 +66,9 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\mipm
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\poke_ball.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\logo.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\wallpaper.jpg
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\recherche.png
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\accueil.png
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\ajout.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\search.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\home.png
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\add.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\bug.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\dark.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\dragon.png
@@ -87,7 +87,7 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\draw
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\steel.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\rock.png
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\water.png
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\musique_fond.mp3
+C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\res\drawable\background_music.mp3
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\uploadflags.txt
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\resolvedassemblies.hash
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.Android\obj\Debug\120\android\assets\FormsViewGroup.dll

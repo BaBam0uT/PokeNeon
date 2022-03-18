@@ -38,7 +38,7 @@
                            WidthRequest="40"/>
                 </StackLayout>
             </Frame>
-            <SearchBar Placeholder="Chercher le nom d'un Pokemon"
+            <SearchBar Placeholder="Search the name of a Pokemon"
                        CancelButtonColor="White"
                        PlaceholderColor="White"
                        TextColor="White"
@@ -46,11 +46,12 @@
                        TextTransform="Lowercase"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"
-                       TextChanged="AffichageDesPokemon"
-                       Margin="5"/>
+                       TextChanged="DisplayPokemonByEnteredName"
+                       Margin="5,5,5,0"/>
             <CollectionView x:Name="listview"
+                            ItemsSource="{Binding PokemonList}"
                             SelectionMode="Single"
-                            SelectionChanged="AfficherDescription"
+                            SelectionChanged="DisplayDescription"
                             Margin="5">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -66,7 +67,7 @@
                                    VerticalTextAlignment="Center"
                                    Padding="10,0,0,0"></Label>
                                 <Label Grid.Column="2"
-                                       Text="{Binding Nom}"
+                                       Text="{Binding Name}"
                                    VerticalTextAlignment="Center"
                                    Padding="10,0,15,0"
                                        WidthRequest="100"></Label>

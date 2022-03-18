@@ -25,7 +25,7 @@ namespace PokeNeon.Droid
 
             Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 153, 153, 153));
 
-            player = MediaPlayer.Create(this, Resource.Drawable.musique_fond);
+            player = MediaPlayer.Create(this, Resource.Drawable.background_music);
             player.Start();
         }
 

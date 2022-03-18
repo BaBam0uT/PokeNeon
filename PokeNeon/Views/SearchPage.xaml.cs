@@ -20,16 +20,20 @@ namespace PokeNeon.Views
             BindingContext = ListViewModel.Instance;
         }
 
-        private async void AfficherDescription(object sender, SelectionChangedEventArgs e)
+        // Méthode asynchrone qui permet d'afficher la page de Description du Pokémon sur lequel on appuie et mets le booléen fromSearchPage à true pour le retour de la DescriptionPage à la SearchPage
+        // Entrée : un object sender, ainsi qu'une variable e de type SelectionChangedEventArgs
+        public async void DisplayDescription(object sender, SelectionChangedEventArgs e)
         {
             fromSearchPage = true;
             MyPokemon current = (e.CurrentSelection.FirstOrDefault() as MyPokemon);
             await Navigation.PushAsync(new DescriptionPage(current, fromSearchPage));
         }
 
-        public void AffichageDesPokemon(object sender, TextChangedEventArgs e)
+        // Méthode qui permet de filtrer la listView sur le nom des Pokemon lorsque l'utilisateur saisit une lettre sur son clavier
+        // Entrée : un object sender, ainsi qu'une variable e de type TextChangedEventArgs
+        public void DisplayPokemonByEnteredName(object sender, TextChangedEventArgs e)
         {
-            listview.ItemsSource = ListViewModel.Instance.ListePokemon.Where(s => s.Nom.StartsWith(e.NewTextValue));
+            listview.ItemsSource = ListViewModel.Instance.PokemonList.Where(s => s.Name.StartsWith(e.NewTextValue));
         }
     }
 }

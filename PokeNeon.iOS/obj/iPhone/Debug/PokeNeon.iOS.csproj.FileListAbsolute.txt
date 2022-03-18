@@ -79,7 +79,6 @@ C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\coremlc\_
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\_ProcessedBundleResourcesPath.items
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\_ProcessedContentPath.items
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\optimized\
-C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\PokeNeon.iOS.csproj.AssemblyReference.cache
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\PokeNeon.iOS.csproj.CoreCompileInputs.cache
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\PokeNeon.iOS.csproj.CopyComplete
 C:\IUT\Projet_IUT\Projet_Mobile\PokeNeon\PokeNeon.iOS\obj\iPhone\Debug\PokeNeon.iOS.exe

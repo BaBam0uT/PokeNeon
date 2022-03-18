@@ -5,22 +5,24 @@ using System.Threading.Tasks;
 
 namespace PokeNeon.ViewModels
 {
+    // Cette classe est le ViewModel de type BaseViewModel qui va permettre de faire le lien de connexion entre les Models et les Views.
+    // On va convertir les objets de données du model MyPokemon de sorte que ces objets soient facilement gérés et présentés.
+    // Ici, on va rassembler les méthodes qui vont permettre de récupérer les Pokemon de l'API ou/et les Pokemon stockés en base de données et de les ajouter à une liste de Pokemon de type ObservableCollection nommée PokemonList.
     public class ListViewModel : BaseViewModel
     {
-
         private static ListViewModel _instance = new ListViewModel();
 
         public static ListViewModel Instance { get { return _instance; } }
 
-        public const int NOMBRE_POKE_API_AU_DEMARRAGE = 50;
+        public const int NUMBER_OF_POKEMON_API_AT_STARTUP = 50;
 
-        public int nbPokeAjoute = 0;
+        public int nbPokemonAdded = 0;
 
-        public int nbrPokeDatabase = 0;
+        public int nbPokemonDatabase = 0;
 
-        public MyPokemon pokemon;
+        public MyPokemon pokemonFromDatabase;
 
-        public ObservableCollection<MyPokemon> ListePokemon
+        public ObservableCollection<MyPokemon> PokemonList
         {
             get { return GetValue<ObservableCollection<MyPokemon>>(); }
             set { SetValue(value); }
@@ -30,263 +32,153 @@ namespace PokeNeon.ViewModels
             GetList();
         }
 
+        // Méthode asynchrone qui permet de récupérer au démarrage de l'application 50 Pokemon de l'API s'il s'agit de la première ouverture de l'application et les stocker en base de données et les ajouter à la PokemonList.
+        // Si ce n'est pas la première ouverture de l'application, l'application va d'abord récupérer les Pokemon qui ont été ajoutés par l'utilisateur et les ajouter à la PokemonList,
+        // ensuite l'application va récupérer les 50 Pokemon stockés en base de données, et les ajouter à la PokemonList.
+        // Entrée : Rien
         public async void GetList() {
             PokeApiClient pokeClient = new PokeApiClient();
-            ListePokemon = new ObservableCollection<MyPokemon>();
-            nbrPokeDatabase = await App.Database._database.Table<MyPokemon>().CountAsync();
-            if (ListePokemon.Count == 0)
+            PokemonList = new ObservableCollection<MyPokemon>();
+            nbPokemonDatabase = await App.Database._database.Table<MyPokemon>().CountAsync();
+            if (PokemonList.Count == 0)
             {
-                for (var i = 0; i < nbrPokeDatabase; i++)
+                for (var i = 0; i < nbPokemonDatabase; i++)
                 {
-                    pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
-                    if (pokemon.isNew == true)
+                    pokemonFromDatabase = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                    if (pokemonFromDatabase.isNew == true)
                     {
-                        ListePokemon.Add(pokemon);
-                        nbPokeAjoute++;
+                        PokemonList.Add(pokemonFromDatabase);
+                        nbPokemonAdded++;
                     }
                 }
-                if (nbrPokeDatabase <= NOMBRE_POKE_API_AU_DEMARRAGE)
+                if (nbPokemonDatabase < NUMBER_OF_POKEMON_API_AT_STARTUP)
                 {
-                    for (var j = 1; j <= NOMBRE_POKE_API_AU_DEMARRAGE; j++)
+                    for (var j = 1; j <= NUMBER_OF_POKEMON_API_AT_STARTUP; j++)
                     {
                         Pokemon p = await Task.Run(() =>
                         pokeClient.GetResourceAsync<Pokemon>(j));
-                        getListPokemon(p);
+                        sendPokemonApiToList(p);
                     }
                 }
                 else
                 {
-                    for (var j = 0; j < NOMBRE_POKE_API_AU_DEMARRAGE; j++)
+                    for (var j = 0; j < NUMBER_OF_POKEMON_API_AT_STARTUP; j++)
                     {
-                        pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(j);
-                        ListePokemon.Add(pokemon);
+                        pokemonFromDatabase = await App.Database._database.Table<MyPokemon>().ElementAtAsync(j);
+                        PokemonList.Add(pokemonFromDatabase);
                     }
                 }
             }
         }
 
-        public async Task ChangeList(int nbPokeVoulu)
+        // Méthode asynchrone qui permet de modifier le nombre de Pokemon de la PokemonList venant de l'API.
+        // Entrée : un entier qui correspond au nouveau nombre de Pokemon de l'API qu'on veut récupérer.
+        public async Task ChangeApiList(int newNbOfPokemonAPIList)
         {
             PokeApiClient pokeClient = new PokeApiClient();
-            if (nbPokeVoulu < ListePokemon.Count)
+            // Permet de supprimer de la PokemonList des Pokemon de l'API si on souhaite un nombre de Pokemon venant de l'API moins élevé
+            if (newNbOfPokemonAPIList < PokemonList.Count)
             {
-                for (var i = ListePokemon.Count; i > nbPokeVoulu + nbPokeAjoute; i--)
+                for (var i = PokemonList.Count; i > newNbOfPokemonAPIList + nbPokemonAdded; i--)
                 {
-                    ListePokemon.RemoveAt(i - 1);
+                    PokemonList.RemoveAt(i - 1);
                 }
             }
-            else if (nbPokeVoulu > ListePokemon.Count)
+            // Permet d'ajouter dans la PokemonList des Pokemon de l'API si on souhaite un nombre de Pokemon venant de l'API plus élevé
+            else if (newNbOfPokemonAPIList > PokemonList.Count)
             {
-                // Si le nombre de Poke de l'api est inférieur à 50
-                if (ListePokemon.Count - nbPokeAjoute < NOMBRE_POKE_API_AU_DEMARRAGE)
+                // Si le nombre de Pokemon de l'API actuel dans la liste est inférieur à 50
+                if (PokemonList.Count - nbPokemonAdded < NUMBER_OF_POKEMON_API_AT_STARTUP)
                 {
-                    // Et si le nombre de Poke voulu est supérieur à 50
-                    if (nbPokeVoulu > NOMBRE_POKE_API_AU_DEMARRAGE)
+                    // Si le nombre de Pokemon de l'API dans la liste qu'on souhaite est supérieur à 50
+                    if (newNbOfPokemonAPIList > NUMBER_OF_POKEMON_API_AT_STARTUP)
                     {
-                        for (var i = ListePokemon.Count - nbPokeAjoute; i < NOMBRE_POKE_API_AU_DEMARRAGE; i++)
+                        // On génère d'abord jusqu'à 50 les Pokemon depuis la base de données
+                        for (var i = PokemonList.Count - nbPokemonAdded; i < NUMBER_OF_POKEMON_API_AT_STARTUP; i++)
                         {
-                            pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
-                            ListePokemon.Add(pokemon);
+                            pokemonFromDatabase = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                            PokemonList.Add(pokemonFromDatabase);
                         }
-                        for (var j = NOMBRE_POKE_API_AU_DEMARRAGE; j < nbPokeVoulu; j++)
+                        // On termine la génération avec des Pokemon qu'on récupère depuis l'API
+                        for (var j = NUMBER_OF_POKEMON_API_AT_STARTUP; j < newNbOfPokemonAPIList; j++)
                         {
-                            Pokemon p = await Task.Run(() =>
+                            Pokemon pokemonfromApi = await Task.Run(() =>
                             pokeClient.GetResourceAsync<Pokemon>(j + 1));
-                            getListPokemon(p);
+                            sendPokemonApiToList(pokemonfromApi);
                         }
                     }
+                    // Si le nombre de Pokemon de l'API qu'on souhaite est inférieur ou égal à 50
                     else
                     {
-                        // Et si le nombre de Poke voulu est inférieur ou égal à 50
-                        for (var i = ListePokemon.Count - nbPokeAjoute; i < nbPokeVoulu; i++)
+                        // On génère jusqu'au nombre voulu les Pokemon depuis la base de données
+                        for (var i = PokemonList.Count - nbPokemonAdded; i < newNbOfPokemonAPIList; i++)
                         {
-                            pokemon = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
-                            ListePokemon.Add(pokemon);
+                            pokemonFromDatabase = await App.Database._database.Table<MyPokemon>().ElementAtAsync(i);
+                            PokemonList.Add(pokemonFromDatabase);
                         }
                     }
                 }
-                // Si le nombre de Poke est supérieur ou égal à 50
+                // Si le nombre de Pokemon de l'API actuel dans la liste est supérieur ou égal à 50
                 else
                 {
-                    for (var j = ListePokemon.Count - nbPokeAjoute; j < nbPokeVoulu; j++)
+                    // On génère jusqu'au nombre voulu des Pokemon qu'on récupère depuis l'API
+                    for (var j = PokemonList.Count - nbPokemonAdded; j < newNbOfPokemonAPIList; j++)
                     {
-                        Pokemon p = await Task.Run(() =>
+                        Pokemon pokemonfromApi = await Task.Run(() =>
                         pokeClient.GetResourceAsync<Pokemon>(j + 1));
-                        getListPokemon(p);
+                        sendPokemonApiToList(pokemonfromApi);
                     }
                 }
             }
         }
 
-        public async void getListPokemon(Pokemon p)
+        // Méthode asynchrone qui permet de récupérer un Pokemon de l'API en instanciant un nouveau Pokemon de type MyPokemon,
+        // de le sauvegarder en base de données s'il s'agit de la première ouverture de l'application, et de l'ajouter à la PokemonList
+        // De plus, la création du Pokemon de l'API prend en compte le nombre de types et de talents que possède le Pokemon en question
+        // Entrée : un Pokemon p de type Pokemon de l'API, un type relié à l'API
+        public async void sendPokemonApiToList(Pokemon p)
         {
-            if (p.Types.Count == 1 && p.Abilities.Count == 1)
+            MyPokemon newPokemonApi = new MyPokemon
             {
-                MyPokemon monpoke = new MyPokemon
-                {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height,
-                    Weight = "Weight : " + p.Weight,
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
+                Name = p.Name,
+                Image = p.Sprites.FrontDefault,
+                IdPoke = "N° " + p.Id,
+                Type1 = getTypeImage(p.Types[0].Type.Name),
+                TypeColor = getTypeColor(p.Types[0].Type.Name),
+                Height = "Height : " + p.Height,
+                Weight = "Weight : " + p.Weight,
+                Ability1 = p.Abilities[0].Ability.Name,
+                Hp = p.Stats[0].BaseStat.ToString(),
+                Attack = p.Stats[1].BaseStat.ToString(),
+                Defense = p.Stats[2].BaseStat.ToString(),
+                SpeAttack = p.Stats[3].BaseStat.ToString(),
+                SpeDefense = p.Stats[4].BaseStat.ToString(),
+                Speed = p.Stats[5].BaseStat.ToString(),
+                isNew = false
                 };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
-                }
-                ListePokemon.Add(monpoke);
-            }
-            else if (p.Types.Count == 1 && p.Abilities.Count == 2)
+            if (p.Types.Count == 2)
             {
-                MyPokemon monpoke = new MyPokemon
-                {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height,
-                    Weight = "Weight : " + p.Weight,
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Ability2 = p.Abilities[1].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
-                };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
-                }
-                ListePokemon.Add(monpoke);
+                newPokemonApi.Type2 = getTypeImage(p.Types[1].Type.Name);
             }
-            else if (p.Types.Count == 1 && p.Abilities.Count == 3)
+            if (p.Abilities.Count == 2)
             {
-                MyPokemon monpoke = new MyPokemon
+                newPokemonApi.Ability2 = p.Abilities[1].Ability.Name;
+                if (p.Abilities.Count == 3)
                 {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height,
-                    Weight = "Weight : " + p.Weight,
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Ability2 = p.Abilities[1].Ability.Name,
-                    Ability3 = p.Abilities[2].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
-                };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
+                    newPokemonApi.Ability3 = p.Abilities[2].Ability.Name;
                 }
-                ListePokemon.Add(monpoke);
             }
-            else if (p.Types.Count == 2 && p.Abilities.Count == 1)
+            if (nbPokemonDatabase < NUMBER_OF_POKEMON_API_AT_STARTUP)
             {
-                MyPokemon monpoke = new MyPokemon
-                {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    Type2 = getTypeImg(p.Types[1].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height,
-                    Weight = "Weight : " + p.Weight,
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
-                };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
-                }
-                ListePokemon.Add(monpoke);
+                await App.Database._database.InsertAsync(newPokemonApi);
             }
-            else if (p.Types.Count == 2 && p.Abilities.Count == 2)
-            {
-                MyPokemon monpoke = new MyPokemon
-                {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    Type2 = getTypeImg(p.Types[1].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height,
-                    Weight = "Weight : " + p.Weight,
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Ability2 = p.Abilities[1].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
-                };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
-                }
-                ListePokemon.Add(monpoke);
-            }
-            else
-            {
-                MyPokemon monpoke = new MyPokemon
-                {
-                    Nom = p.Name,
-                    Image = p.Sprites.FrontDefault,
-                    IdPoke = "N° " + p.Id,
-                    Type1 = getTypeImg(p.Types[0].Type.Name),
-                    Type2 = getTypeImg(p.Types[1].Type.Name),
-                    TypeColor = getTypeColor(p.Types[0].Type.Name),
-                    Height = "Height : " + p.Height + "m",
-                    Weight = "Weight : " + p.Weight + "kg",
-                    Ability1 = p.Abilities[0].Ability.Name,
-                    Ability2 = p.Abilities[1].Ability.Name,
-                    Ability3 = p.Abilities[2].Ability.Name,
-                    Pv = p.Stats[0].BaseStat.ToString(),
-                    Attaque = p.Stats[1].BaseStat.ToString(),
-                    Defense = p.Stats[2].BaseStat.ToString(),
-                    Attaquespe = p.Stats[3].BaseStat.ToString(),
-                    Defensespe = p.Stats[4].BaseStat.ToString(),
-                    Vitesse = p.Stats[5].BaseStat.ToString(),
-                    isNew = false
-                };
-                if (nbrPokeDatabase < NOMBRE_POKE_API_AU_DEMARRAGE)
-                {
-                    await App.Database._database.InsertAsync(monpoke);
-                }
-                ListePokemon.Add(monpoke);
-            }
+            PokemonList.Add(newPokemonApi);
         }
 
+
+        // Méthode qui permet de récupérer la couleur correspondant au premier type du Pokemon en paramètre
+        // Entrée : un string correspondant au premier type du Pokemon
+        // Sortie : un string correspondant à la couleur HEX du type en question
         public string getTypeColor(string TypeName)
         {
             switch(TypeName)
@@ -297,7 +189,7 @@ namespace PokeNeon.ViewModels
                 case "normal": return "#A8A878";
                 case "fighting": return "#C03028";
                 case "bug": return "#A8B820";
-                case "flying": return "##AED6F1";
+                case "flying": return "#AED6F1";
                 case "poison": return "#A040A0";
                 case "rock": return "#B8A038";
                 case "ground": return "#E0C068";
@@ -313,7 +205,11 @@ namespace PokeNeon.ViewModels
             }
         }
 
-        public string getTypeImg(string TypeName)
+
+        // Méthode qui permet de récupérer l'image correspondant au type du Pokemon en paramètre
+        // Entrée : un string correspondant au type du Pokemon en paramètre
+        // Sortie : un string correspondant à l'image du type du Pokemon en paramètre
+        public string getTypeImage(string TypeName)
         {
             switch (TypeName)
             {

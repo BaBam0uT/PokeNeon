@@ -7,19 +7,19 @@
     <FlexLayout Direction="Column">
         <StackLayout Orientation="Horizontal"
                      Spacing="150">
-            <Button Text="Retour"
+            <Button Text="Return"
                 BackgroundColor="#999999"
                 Margin="10,20,0,20"
                 BorderColor="White"
                 BorderWidth="2"
-                Clicked="RevenirListe"/>
-            <Button Text="Supprimer"
+                Clicked="ReturnTo"/>
+            <Button Text="Remove"
                 BackgroundColor="#999999"
                 Margin="0,20,0,20"
                 BorderColor="White"
                 BorderWidth="2"
                 IsVisible="{Binding isNew}"
-                Clicked="SupprimerPoke"/>
+                Clicked="RemovePokemon"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal"
                      Margin="10,0,10,25"
@@ -31,7 +31,7 @@
                          Padding="0,5,0,5">
                 <Label Text="{Binding IdPoke}"
                        FontAttributes="Bold"></Label>
-                <Label Text="{Binding Nom}"
+                <Label Text="{Binding Name}"
                        FontAttributes="Bold"></Label>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Type1}"
@@ -54,7 +54,7 @@
             </StackLayout>
         </StackLayout>
         <Grid HeightRequest="200">
-            <Label Text="PV :"
+            <Label Text="HP :"
                    BackgroundColor="LightGray"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -62,7 +62,7 @@
                    Margin="10,0,0,0"
                    Grid.Column="0"
                    Grid.Row="0"/>
-            <Label Text="{Binding Pv}" 
+            <Label Text="{Binding Hp}" 
                    BackgroundColor="LightGray"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -70,7 +70,7 @@
                    Margin="0,0,10,0"
                    Grid.Column="1"
                    Grid.Row="0"/>
-            <Label Text="Attaque :"
+            <Label Text="Attack :"
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -78,7 +78,7 @@
                    Margin="10,0,0,0"
                    Grid.Column="0"
                    Grid.Row="1"/>
-            <Label Text="{Binding Attaque}" 
+            <Label Text="{Binding Attack}" 
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -86,7 +86,7 @@
                    Margin="0,0,10,0"
                    Grid.Column="1"
                    Grid.Row="1"/>
-            <Label Text="Défense :"
+            <Label Text="Defense :"
                    BackgroundColor="LightGray"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -102,7 +102,7 @@
                    Margin="0,0,10,0"
                    Grid.Column="1"
                    Grid.Row="2"/>
-            <Label Text="Attaque spéciale :"
+            <Label Text="Special Attack :"
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -110,7 +110,7 @@
                    Margin="10,0,0,0"
                    Grid.Column="0"
                    Grid.Row="3"/>
-            <Label Text="{Binding Attaquespe}" 
+            <Label Text="{Binding SpeAttack}" 
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -118,7 +118,7 @@
                    Margin="0,0,10,0"
                    Grid.Column="1"
                    Grid.Row="3"/>
-            <Label Text="Défense spéciale :"
+            <Label Text="Special Defense :"
                    BackgroundColor="LightGray"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -126,7 +126,7 @@
                    Margin="10,0,0,0"
                    Grid.Column="0"
                    Grid.Row="4"/>
-            <Label Text="{Binding Defensespe}" 
+            <Label Text="{Binding SpeDefense}" 
                    BackgroundColor="LightGray"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -134,7 +134,7 @@
                    Margin="0,0,10,0"
                    Grid.Column="1"
                    Grid.Row="4"/>
-            <Label Text="Vitesse :"
+            <Label Text="Speed :"
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
@@ -142,7 +142,7 @@
                    Margin="10,0,0,0"
                    Grid.Column="0"
                    Grid.Row="5"/>
-            <Label Text="{Binding Vitesse}" 
+            <Label Text="{Binding Speed}" 
                    BackgroundColor="#999999"
                    TextColor="black"
                    HorizontalTextAlignment="Center"
